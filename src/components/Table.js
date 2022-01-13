@@ -157,7 +157,7 @@ export default function Example() {
                     7d %
                   </th>
                   <th scope="col" className="relative px-6 py-3">
-                    <span className="sr-only">Edit</span>
+                    <span className="sr-only">Details</span>
                   </th>
                 </tr>
               </thead>
@@ -165,7 +165,7 @@ export default function Example() {
                 {people.map((person) => (
                   <tr
                     key={person.email}
-                    className="cursor-pointer hover:bg-purple-100 transition-all"
+                    className="cursor-pointer hover:bg-sky-100 transition-all"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
