@@ -3,8 +3,8 @@ import axios from 'axios'
 import SearchArea from './components/SearchArea'
 import Table from './components/Table'
 
-const defaultURL = 'https://api.coingecko.com/api/v3/search/trending'
-const searchURL = 'https://api.coingecko.com/api/v3/search/'
+// const defaultURL = 'https://api.coingecko.com/api/v3/search/trending'
+// const searchURL = 'https://api.coingecko.com/api/v3/search/'
 
 function App() {
   const [searchText, setSearchText] = useState('')
@@ -18,8 +18,8 @@ function App() {
           : `https://api.coingecko.com/api/v3/search?query=${searchText}`
       )
       .then(function (response) {
-        const data = response.coins
-        // console.log(data.data.coins)
+        const data = response.data.coins
+        // console.log(response.data.coins)
         setCoins(data)
       })
       .catch(function (error) {
