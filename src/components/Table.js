@@ -123,7 +123,7 @@ const people = [
   // More people...
 ]
 
-export default function Example() {
+export default function Example({ coins }) {
   return (
     <div className="flex flex-col shadow-xl">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -162,9 +162,9 @@ export default function Example() {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {people.map((person) => (
+                {coins.map((coin) => (
                   <tr
-                    key={person.email}
+                    key={coin.id}
                     className="cursor-pointer hover:bg-sky-100 transition-all"
                   >
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -172,30 +172,23 @@ export default function Example() {
                         <div className="flex-shrink-0 h-10 w-10">
                           <img
                             className="h-10 w-10 rounded-full"
-                            src={person.image}
+                            src={coin.large}
                             alt=""
                           />
                         </div>
                         <div className="ml-4">
                           <div className="text-sm font-medium text-gray-900">
-                            {person.name}
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {person.email}
+                            {coin.name}
                           </div>
                         </div>
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">
-                        {person.title}
-                      </div>
-                      <div className="text-sm text-gray-500">
-                        {person.department}
-                      </div>
+                      <div className="text-sm text-gray-900">{coin.rank}</div>
+                      <div className="text-sm text-gray-500">{coin.rank}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {person.status ? (
+                      {coin.status ? (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200 text-green-900">
                           0.21%
                         </span>
@@ -206,7 +199,7 @@ export default function Example() {
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {person.status ? (
+                      {coin.status ? (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200 text-green-900">
                           0.21%
                         </span>

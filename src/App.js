@@ -6,34 +6,34 @@ import Table from './components/Table'
 // const defaultURL = 'https://api.coingecko.com/api/v3/search/trending'
 // const searchURL = 'https://api.coingecko.com/api/v3/search/'
 
+//  searchText === ''
+//    ? 'https://api.coingecko.com/api/v3/search/trending'
+//    : `https://api.coingecko.com/api/v3/search?query=${searchText}`
+
 function App() {
   const [searchText, setSearchText] = useState('')
   const [coins, setCoins] = useState([])
   useEffect(() => {
     // burada istek yapılacak
     axios
-      .get(
-        searchText === ''
-          ? 'https://api.coingecko.com/api/v3/search/trending'
-          : `https://api.coingecko.com/api/v3/search?query=${searchText}`
-      )
+      .get('https://api.coingecko.com/api/v3/search?query=trending')
       .then(function (response) {
-        const data = response.data.coins
-        // console.log(response.data.coins)
-        setCoins(data)
+        // const data = response.data.coins
+        console.log(response)
+        // setCoins(response)
       })
       .catch(function (error) {
         console.log(error)
       })
       .then(() => {
-        console.log(coins)
+        // console.log(coins)
       })
   }, [searchText])
   return (
     <div className="min-h-screen w-full bg-white">
       <SearchArea searchText={searchText} setSearchText={setSearchText} />
       <div className="container mx-auto mt-5 p-5">
-        <Table coins={coins} />
+        {/* <Table coins={coins} /> */}
       </div>
     </div>
   )
