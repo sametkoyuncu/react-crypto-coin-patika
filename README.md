@@ -1,4 +1,4 @@
-# Kripta Para Takip Uygulaması
+# Kripto Para Takip Uygulaması
 
 Coin Gecko API'dan çekilen kripto para verilerinin gösterildiği basit React.js uygulaması.
 [Siteyi Görüntüleyin 👆](https://patika-coin.netlify.app/)
