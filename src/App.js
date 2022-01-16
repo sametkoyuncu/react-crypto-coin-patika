@@ -20,22 +20,25 @@ function App() {
         'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h'
       )
       .then(function (response) {
-        // const data = response.data.coins
         console.log(response)
         setCoins(response.data)
       })
       .catch(function (error) {
         console.log(error)
       })
-      .then(() => {
-        // console.log(coins)
-      })
-  }, [searchText])
+  }, [])
+
+  const filteredCoins = coins.filter(
+    (coin) =>
+      coin.name.toLowerCase().includes(searchText.toLowerCase()) ||
+      coin.symbol.toLowerCase().includes(searchText.toLowerCase())
+  )
+
   return (
     <div className="min-h-screen w-full bg-white">
       <SearchArea searchText={searchText} setSearchText={setSearchText} />
       <div className="container mx-auto mt-5 p-5">
-        <Table coins={coins} />
+        <Table coins={filteredCoins} />
       </div>
     </div>
   )
