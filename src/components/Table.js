@@ -142,6 +142,12 @@ export default function Example({ coins }) {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
+                    Symbol
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                  >
                     Price
                   </th>
                   <th
@@ -149,12 +155,6 @@ export default function Example({ coins }) {
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider"
                   >
                     24h %
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider"
-                  >
-                    7d %
                   </th>
                   <th scope="col" className="relative px-6 py-3">
                     <span className="sr-only">Details</span>
@@ -172,7 +172,7 @@ export default function Example({ coins }) {
                         <div className="flex-shrink-0 h-10 w-10">
                           <img
                             className="h-10 w-10 rounded-full"
-                            src={coin.large}
+                            src={coin.image}
                             alt=""
                           />
                         </div>
@@ -184,28 +184,22 @@ export default function Example({ coins }) {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <div className="text-sm text-gray-900">{coin.rank}</div>
-                      <div className="text-sm text-gray-500">{coin.rank}</div>
+                      <div className="text-sm text-gray-900">{coin.symbol}</div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {coin.status ? (
+                      <div className="text-sm text-gray-900">
+                        {coin.current_price}
+                      </div>
+                      <div className="text-sm text-gray-500">USD</div>
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {coin.price_change_percentage_24h >= 0 ? (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200 text-green-900">
-                          0.21%
+                          % {coin.price_change_percentage_24h}
                         </span>
                       ) : (
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-red-900">
-                          0.01%
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      {coin.status ? (
-                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-200 text-green-900">
-                          0.21%
-                        </span>
-                      ) : (
-                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-200 text-red-900">
-                          0.01%
+                          % {coin.price_change_percentage_24h}
                         </span>
                       )}
                     </td>

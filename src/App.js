@@ -16,11 +16,13 @@ function App() {
   useEffect(() => {
     // burada istek yapılacak
     axios
-      .get('https://api.coingecko.com/api/v3/search?query=trending')
+      .get(
+        'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h'
+      )
       .then(function (response) {
         // const data = response.data.coins
         console.log(response)
-        // setCoins(response)
+        setCoins(response.data)
       })
       .catch(function (error) {
         console.log(error)
@@ -33,7 +35,7 @@ function App() {
     <div className="min-h-screen w-full bg-white">
       <SearchArea searchText={searchText} setSearchText={setSearchText} />
       <div className="container mx-auto mt-5 p-5">
-        {/* <Table coins={coins} /> */}
+        <Table coins={coins} />
       </div>
     </div>
   )
